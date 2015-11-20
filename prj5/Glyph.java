@@ -8,7 +8,7 @@ import java.awt.SystemColor;
 /**
  * A JPanel that represents a single song on the GUI
  * 
- * @author Alexander Mundy, Joe Walker, Kiki Simpson
+ * @author Alexander Mundy, Joe Walker, Kalila Simpson <amundy14, jdub36, kiki>
  * @version <20NOV2015>
  *
  */

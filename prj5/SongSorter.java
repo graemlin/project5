@@ -5,7 +5,7 @@ import java.util.LinkedList;
 /**
  * Sorts the song list according to the user's choice
  * 
- * @author Alexander Mundy, Joe Walker, Kiki Simpson
+ * @author Alexander Mundy, Joe Walker, Kalila Simpson <amundy14, jdub36, kiki>
  * @version <20NOV2015>
  *
  */
@@ -13,7 +13,8 @@ import java.util.LinkedList;
 public class SongSorter {
 
     /**
-     * Sorts the songs in alphabetic order by title
+     * Sorts the songs in alphabetic order by title. Does NOT modify the
+     * original LinkedList
      * 
      * @param songs
      *            The song list to be sorted
@@ -28,22 +29,31 @@ public class SongSorter {
         }
 
         LinkedList<Song> sortedSongs = new LinkedList<Song>();
-        if (songs.size() != 0) {
-            sortedSongs.add(songs.get(0));
-        }
-        for (int i = 1; i < songs.size(); i++) {
-            int counter = 0;
-            while (counter <= sortedSongs.size() - 1 && sortedSongs.get(counter)
-                    .compareTitles(sortedSongs.get(counter + 1)) > 0) {
-                counter++;
+        @SuppressWarnings("unchecked")
+        LinkedList<Song> temp = (LinkedList<Song>) songs.clone();
+        for (Song song : temp) {
+            if (song == null) {
+                temp.remove(song);
             }
-            sortedSongs.add(counter, songs.get(i));
         }
+        while (temp.size() != 0) {
+            Song foo = temp.get(0);
+            for (Song song : temp) {
+                if (song.compareTitles(foo) < 0) {
+                    foo = song;
+                }
+
+            }
+            temp.remove(foo);
+            sortedSongs.add(foo);
+        }
+
         return sortedSongs;
     }
 
     /**
-     * Sorts the songs in alphabetic order by artist
+     * Sorts the songs in alphabetic order by artist. Does NOT modify the
+     * original LinkedList
      * 
      * @param songs
      *            The song list to be sorted
@@ -56,23 +66,33 @@ public class SongSorter {
         if (songs.size() == 0) {
             return new LinkedList<Song>();
         }
+
         LinkedList<Song> sortedSongs = new LinkedList<Song>();
-        if (songs.size() != 0) {
-            sortedSongs.add(songs.get(0));
-        }
-        for (int i = 1; i < songs.size(); i++) {
-            int counter = 0;
-            while (counter <= sortedSongs.size() - 1 && sortedSongs.get(counter)
-                    .compareArtists(sortedSongs.get(counter + 1)) > 0) {
-                counter++;
+        @SuppressWarnings("unchecked")
+        LinkedList<Song> temp = (LinkedList<Song>) songs.clone();
+        for (Song song : temp) {
+            if (song == null) {
+                temp.remove(song);
             }
-            sortedSongs.add(counter, songs.get(i));
         }
+        while (temp.size() != 0) {
+            Song foo = temp.get(0);
+            for (Song song : temp) {
+                if (song.compareArtists(foo) < 0) {
+                    foo = song;
+                }
+
+            }
+            temp.remove(foo);
+            sortedSongs.add(foo);
+        }
+
         return sortedSongs;
     }
 
     /**
-     * Sorts the songs in alphabetic order by genre
+     * Sorts the songs in alphabetic order by genre. Does NOT modify the
+     * original LinkedList
      * 
      * @param songs
      *            The song list to be sorted
@@ -85,47 +105,66 @@ public class SongSorter {
         if (songs.size() == 0) {
             return new LinkedList<Song>();
         }
+
         LinkedList<Song> sortedSongs = new LinkedList<Song>();
-        if (songs.size() != 0) {
-            sortedSongs.add(songs.get(0));
-        }
-        for (int i = 1; i < songs.size(); i++) {
-            int counter = 0;
-            while (counter <= sortedSongs.size() - 1 && sortedSongs.get(counter)
-                    .compareGenres(sortedSongs.get(counter + 1)) > 0) {
-                counter++;
+        @SuppressWarnings("unchecked")
+        LinkedList<Song> temp = (LinkedList<Song>) songs.clone();
+        for (Song song : temp) {
+            if (song == null) {
+                temp.remove(song);
             }
-            sortedSongs.add(counter, songs.get(i));
         }
+        while (temp.size() != 0) {
+            Song foo = temp.get(0);
+            for (Song song : temp) {
+                if (song.compareGenres(foo) < 0) {
+                    foo = song;
+                }
+
+            }
+            temp.remove(foo);
+            sortedSongs.add(foo);
+        }
+
         return sortedSongs;
     }
 
     /**
-     * Sorts the songs in increasing chronological order by release date
+     * Sorts the songs in increasing chronological order by release date. Does
+     * NOT modify the original LinkedList
      * 
      * @param songs
      *            The song list to be sorted
      * @return The sorted song list
      */
-    public static LinkedList<Song> sortByYears(LinkedList<Song> songs) {
+    public static LinkedList<Song> sortByYear(LinkedList<Song> songs) {
         if (songs == null) {
             return null;
         }
         if (songs.size() == 0) {
             return new LinkedList<Song>();
         }
+
         LinkedList<Song> sortedSongs = new LinkedList<Song>();
-        if (songs.size() != 0) {
-            sortedSongs.add(songs.get(0));
-        }
-        for (int i = 1; i < songs.size(); i++) {
-            int counter = 0;
-            while (counter <= sortedSongs.size() - 1 && sortedSongs.get(counter)
-                    .compareYears(sortedSongs.get(counter + 1)) > 0) {
-                counter++;
+        @SuppressWarnings("unchecked")
+        LinkedList<Song> temp = (LinkedList<Song>) songs.clone();
+        for (Song song : temp) {
+            if (song == null) {
+                temp.remove(song);
             }
-            sortedSongs.add(counter, songs.get(i));
         }
+        while (temp.size() != 0) {
+            Song foo = temp.get(0);
+            for (Song song : temp) {
+                if (song.compareYears(foo) < 0) {
+                    foo = song;
+                }
+
+            }
+            temp.remove(foo);
+            sortedSongs.add(foo);
+        }
+
         return sortedSongs;
     }
 

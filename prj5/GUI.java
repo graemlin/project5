@@ -15,7 +15,7 @@ import java.awt.Color;
 /**
  * The main GUI for project5
  * 
- * @author Alexander Mundy, Joe Walker, Kiki Simpson <amundy14, jdub36, kiki>
+ * @author Alexander Mundy, Joe Walker, Kalila Simpson <amundy14, jdub36, kiki>
  * @version <20NOV2015>
  *
  */
