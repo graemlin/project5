@@ -27,8 +27,7 @@ public class Student {
 	 * @param major The student's major
 	 * @param region The region the student is from
 	 */
-	@SuppressWarnings("unchecked")
-	public Student(String hobby, String major, String region, LinkedList opinions) {
+	public Student(String hobby, String major, String region, LinkedList<String> opinions) {
 		this.hobby = hobby;
 		this.major = major;
 		this.region = region;

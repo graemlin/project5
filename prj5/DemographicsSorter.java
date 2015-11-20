@@ -39,7 +39,7 @@ public class DemographicsSorter {
      * @return a matrix that contains 4 integer arrays (readOpinions,
      *         sportsOpinions, artOpinions, musicOpinions)
      */
-    public int[][] sortByHobbie() {
+    public int[][] sortByHobby() {
         Iterator<Student> iter = list.iterator();
         Student currentStudent = list.getFirst();
 

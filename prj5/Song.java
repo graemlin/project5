@@ -14,21 +14,32 @@ public class Song {
      * The Strings that will hold the title, artist, and genre of a specific
      * song
      */
-    private String title, artist, genre;
+    private String title;
+    private String artist;
+    private String genre;
+
     /**
      * The integer that will hold the year the song came out
      */
     private int year;
+
     /**
      * The integers that will represent whether or not each of the four
      * demographics have heard a song
      */
-    private int heard1, heard2, heard3, heard4;
+    private int heard1;
+    private int heard2;
+    private int heard3;
+    private int heard4;
+
     /**
      * The integers that will represent whether or not each of the four
      * demographics liked a song
      */
-    private int liked1, liked2, liked3, liked4;
+    private int liked1;
+    private int liked2;
+    private int liked3;
+    private int liked4;
 
     /**
      * The constructor for all Songs
@@ -96,9 +107,9 @@ public class Song {
     /**
      * Compares Song titles
      * 
-     * @param Song
+     * @param other
      *            the other song you're comparing
-     * @return int the difference between the two
+     * @return the difference between the two
      */
     public int compareTitles(Song other) {
         return this.getTitle().compareTo(other.getTitle());
@@ -118,9 +129,9 @@ public class Song {
     /**
      * Compares Song artist
      * 
-     * @param Song
+     * @param other
      *            the other song you're comparing
-     * @return int the difference between the two
+     * @return the difference between the two
      */
     public int compareArtists(Song other) {
         return this.getArtist().compareTo(other.getArtist());
@@ -129,9 +140,9 @@ public class Song {
     /**
      * Compares Song year
      * 
-     * @param Song
+     * @param other
      *            the other song you're comparing
-     * @return int the difference between the two
+     * @return the difference between the two
      */
     public int compareYears(Song other) {
         return this.getYear() - other.getYear();
@@ -140,7 +151,7 @@ public class Song {
     /**
      * Getter for the heard1 variable
      * 
-     * @return int for heard1
+     * @return for heard1
      */
     public int getHeard1() {
         return heard1;
@@ -151,7 +162,7 @@ public class Song {
      * 
      * @param n
      *            new value for heard1
-     * @return int for heard1
+     * @return for heard1
      */
     public void setHeard1(int n) {
         heard1 = n;
@@ -160,7 +171,7 @@ public class Song {
     /**
      * Getter for the heard2 variable
      * 
-     * @return int for heard2
+     * @return for heard2
      */
     public int getHeard2() {
         return heard2;
@@ -171,7 +182,7 @@ public class Song {
      * 
      * @param n
      *            new value for heard2
-     * @return int for heard2
+     * @return for heard2
      */
     public void setHeard2(int n) {
         heard2 = n;
@@ -180,7 +191,7 @@ public class Song {
     /**
      * Getter for the heard3 variable
      * 
-     * @return int for heard3
+     * @return heard3
      */
     public int getHeard3() {
         return heard3;
@@ -191,7 +202,7 @@ public class Song {
      * 
      * @param n
      *            new value for heard3
-     * @return int for heard3
+     * @return heard3
      */
     public void setHeard3(int n) {
         heard3 = n;
@@ -200,7 +211,7 @@ public class Song {
     /**
      * Getter for the heard4 variable
      * 
-     * @return int for heard4
+     * @return heard4
      */
     public int getHeard4() {
         return heard4;
@@ -211,7 +222,7 @@ public class Song {
      * 
      * @param n
      *            new value for heard4
-     * @return int for heard4
+     * @return heard4
      */
     public void setHeard4(int n) {
         heard4 = n;
@@ -220,7 +231,7 @@ public class Song {
     /**
      * Getter for the liked1 variable
      * 
-     * @return int for liked1
+     * @return liked1
      */
     public int getLiked1() {
         return liked1;
@@ -231,7 +242,7 @@ public class Song {
      * 
      * @param n
      *            new value for liked1
-     * @return int for liked1
+     * @return   liked1
      */
     public void setLiked1(int n) {
         liked1 = n;
@@ -240,7 +251,7 @@ public class Song {
     /**
      * Getter for the liked2 variable
      * 
-     * @return int for liked2
+     * @return   liked2
      */
     public int getLiked2() {
         return liked2;
@@ -251,7 +262,7 @@ public class Song {
      * 
      * @param n
      *            new value for liked2
-     * @return int for liked2
+     * @return   liked2
      */
     public void setLiked2(int n) {
         liked2 = n;
@@ -260,7 +271,7 @@ public class Song {
     /**
      * Getter for the liked3 variable
      * 
-     * @return int for liked3
+     * @return   liked3
      */
     public int getLiked3() {
         return liked3;
@@ -271,7 +282,7 @@ public class Song {
      * 
      * @param n
      *            new value for liked3
-     * @return int for liked3
+     * @return   liked3
      */
     public void setLiked3(int n) {
         liked3 = n;
@@ -280,7 +291,7 @@ public class Song {
     /**
      * Getter for the liked4 variable
      * 
-     * @return int for liked4
+     * @return   liked4
      */
     public int getLiked4() {
         return liked4;
@@ -291,7 +302,7 @@ public class Song {
      * 
      * @param n
      *            new value for liked4
-     * @return int for liked4
+     * @return liked4
      */
     public void setLiked4(int n) {
         liked4 = n;

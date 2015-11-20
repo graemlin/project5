@@ -15,8 +15,8 @@ import java.util.Scanner;
  */
 public class ScanIn {
 
-    LinkedList<Song> songList;
-    LinkedList<Student> studentList;
+    private LinkedList<Song> songList;
+    private LinkedList<Student> studentList;
 
     /**
      * Pulls in the data from the files

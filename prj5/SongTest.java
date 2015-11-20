@@ -11,7 +11,12 @@ public class SongTest extends student.TestCase {
     /**
      * The songs that will be used in testing
      */
-    private Song song, s2, s3, s4, s5, s6;
+    private Song song;
+    private Song s2;
+    private Song s3;
+    private Song s4;
+    private Song s5;
+    private Song s6;
 
     /**
      * Sets everything up for each test
@@ -144,6 +149,25 @@ public class SongTest extends student.TestCase {
         assertEquals(196, song.compareYears(s4));
         assertEquals(0, song.compareYears(s5));
         assertEquals(-807, song.compareYears(s6));
+    }
+    
+    /**
+     * Tests the equals method
+     */
+    public void testequals(){
+        Song nothing = null;
+        assertTrue(song.equals(s2));
+        assertTrue(song.equals(song));
+        assertFalse(song.equals(s3));
+        assertFalse(song.equals(nothing));
+        assertFalse(song.equals("banana"));
+    }
+    
+    /**
+     * Tests the toString method
+     */
+    public void testtoString(){
+        assertEquals(song.toString(), "(Dance Song, Kiki, Rock, 1996)");
     }
 
 }

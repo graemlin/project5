@@ -21,7 +21,7 @@ import java.awt.Color;
  */
 
 @SuppressWarnings("serial")
-public class GUI extends JFrame {
+public class Input extends JFrame {
 
     private JPanel contentPane;
     private Glyph glyph1;
@@ -55,10 +55,17 @@ public class GUI extends JFrame {
      * Launch the application.
      */
     public static void main(String[] args) {
+        String surveyLoc = args[0];
+        String songListLoc = args[1];
+        ScanIn foo = new ScanIn(surveyLoc, songListLoc);
+        DemographicsSorter bar = new DemographicsSorter(foo.getStudentList());
+        
+        
+        
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    GUI frame = new GUI();
+                    Input frame = new Input();
                     frame.setVisible(true);
                 }
                 catch (Exception e) {
@@ -71,7 +78,7 @@ public class GUI extends JFrame {
     /**
      * Create the frame.
      */
-    public GUI() {
+    public Input() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 800, 330);
         contentPane = new JPanel();
