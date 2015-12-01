@@ -12,13 +12,25 @@ import java.util.LinkedList;
  */
 
 public class DemographicsSorter {
-
+    /**
+     * The list of students
+     */
     private LinkedList<Student> list;
-
-    // integer opinion arrays
+    /**
+     * The integer opinion array based on those who like to read
+     */
     private int[] readOpinions;
+    /**
+     * The integer opinion array based on those who like sports
+     */
     private int[] sportsOpinions;
+    /**
+     * The integer opinion array based on those who like art
+     */
     private int[] artOpinions;
+    /**
+     * The integer opinion array based on those who like music
+     */
     private int[] musicOpinions;
 
     /**
