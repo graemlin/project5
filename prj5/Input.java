@@ -20,40 +20,95 @@ import java.awt.Color;
  * @version <20NOV2015>
  *
  */
-
 @SuppressWarnings("serial")
 public class Input extends JFrame {
-
+    /**
+     * The content pane
+     */
     private JPanel contentPane;
+    /**
+     * The 1st glyph which
+     */
     private Glyph glyph1;
+    /**
+     * The 2nd glyph which
+     */
     private Glyph glyph2;
+    /**
+     * The 3rd glyph which
+     */
     private Glyph glyph3;
+    /**
+     * The 4th glyph which
+     */
     private Glyph glyph4;
+    /**
+     * The 5th glyph which
+     */
     private Glyph glyph5;
+    /**
+     * The 6th glyph which
+     */
     private Glyph glyph6;
+    /**
+     * The previous button
+     */
     private JButton btnPrev;
+    /**
+     * The sort by artist button
+     */
     private JButton btnSortByArtist;
+    /**
+     * The sort by song button
+     */
     private JButton btnSortBySong;
+    /**
+     * The sort by release year button
+     */
     private JButton btnSortByRelease;
+    /**
+     * The sort by genre button
+     */
     private JButton btnSortByGenre;
+    /**
+     * The next button
+     */
     private JButton btnNext;
+    /**
+     * The legend
+     */
     private JPanel legend;
     private JTextArea txarLegend;
     private JTextArea txarCat1;
     private JTextArea txarCat2;
     private JTextArea txarCat3;
     private JTextArea txarCat4;
+    /**
+     * The represent by region button
+     */
     private JButton btnRepresentRegion;
+    /**
+     * The represent by major button button
+     */
     private JButton btnRepresentMajor;
+    /**
+     * The represent by hobby button
+     */
     private JButton btnRepresentHobby;
+    /**
+     * The quit button
+     */
     private JButton btnQuit;
     private JTextArea txarHeard;
     private JTextArea txarSongTitle;
     private JTextArea txarLiked;
+    /**
+     * The legend separator
+     */
     private JPanel legendSeparator;
 
     /**
-     * Launch the application.
+     * Launches the application.
      */
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
@@ -110,7 +165,7 @@ public class Input extends JFrame {
     }
 
     /**
-     * Create the frame.
+     * Creates the frame
      */
     public Input() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

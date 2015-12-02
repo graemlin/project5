@@ -9,16 +9,38 @@ import java.util.LinkedList;
  * @version <20NOV2015>
  *
  */
-
 public class SongSorterTest extends student.TestCase {
-
+    /**
+     * The list of songs
+     */
     private LinkedList<Song> songs;
+    /**
+     * The list of sorted songs
+     */
     private LinkedList<Song> sortedSongs;
+    /**
+     * An empty list
+     */
     private LinkedList<Song> empty;
+    /**
+     * The first song used in testing
+     */
     private Song s1;
+    /**
+     * The second song used in testing
+     */
     private Song s2;
+    /**
+     * The third song used in testing
+     */
     private Song s3;
+    /**
+     * The fourth song used in testing
+     */
     private Song s4;
+    /**
+     * The fifth song used in testing
+     */
     private Song s5;
 
     /**
