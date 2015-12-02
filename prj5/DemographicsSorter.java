@@ -10,7 +10,6 @@ import java.util.LinkedList;
  * @version <20NOV2015>
  *
  */
-
 public class DemographicsSorter {
     /**
      * The list of students
@@ -118,7 +117,5 @@ public class DemographicsSorter {
             j = j + 3;
         }
         return array;
-
     }
-
 }
