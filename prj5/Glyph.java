@@ -10,26 +10,61 @@ import java.awt.SystemColor;
  * 
  * @author Alexander Mundy, Joe Walker, Kalila Simpson <amundy14, jdub36, kiki>
  * @version <20NOV2015>
- *
  */
-
 public class Glyph extends JPanel {
-
+    /**
+     * The text of the song title
+     */
     private JTextPane txtrSongTitle;
+    /**
+     * The separator
+     */
     private JPanel separator;
+    /**
+     * The first liked bar
+     */
     private JPanel liked1;
+    /**
+     * The second liked bar
+     */
     private JPanel liked2;
+    /**
+     * The third liked bar
+     */
     private JPanel liked3;
+    /**
+     * The fourth liked bar
+     */
     private JPanel liked4;
+    /**
+     * The first heard bar
+     */
     private JPanel heard1;
+    /**
+     * The second heard bar
+     */
     private JPanel heard2;
+    /**
+     * The third heard bar
+     */
     private JPanel heard3;
+    /**
+     * The fourth heard bar
+     */
     private JPanel heard4;
+    /**
+     * The default lengths
+     */
     private static final double[] DEFAULT_LENGTHS = { 100, 100, 100, 100, 100,
             100, 100, 100 };
 
     /**
-     * Create the panel.
+     * Creates the panel.
+     * 
+     * @param x
+     *            the integer for the x bound
+     * @param y
+     *            the integer for the y bound
      */
     public Glyph(int x, int y) {
         setBounds(x, y, 160, 100);
