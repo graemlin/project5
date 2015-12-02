@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.LinkedList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 import java.awt.Color;
@@ -22,7 +21,7 @@ import java.awt.Color;
  */
 
 @SuppressWarnings("serial")
-public class Input extends JFrame {
+public class Inputnew extends JFrame {
 
     private JPanel contentPane;
     private Glyph glyph1;
@@ -55,47 +54,22 @@ public class Input extends JFrame {
     /**
      * Launch the application.
      */
-    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
-        if(args.length != 2){
-            args = new String[]{"SongList.csv" , "MusicSurveyData.csv"};
-        }
-        String surveyLoc = args[0];
-        String songListLoc = args[1];
-        ScanIn foo = new ScanIn(songListLoc, surveyLoc);
-        DemographicsSorter bar = new DemographicsSorter(foo.getStudentList());
-        int[][] opinions = bar.sortByHobby();
-        LinkedList<Song> sortedSongs = (LinkedList<Song>) foo.getSongList()
-                .clone();
-        int counter = 0;
-        for (Song song : sortedSongs) {
-            song.setHeard1(song.getHeard1() + opinions[0][counter]);
-            song.setLiked1(song.getLiked1() + opinions[0][counter + 1]);
-            song.setHeard2(song.getHeard2() + opinions[1][counter]);
-            song.setLiked2(song.getLiked2() + opinions[1][counter + 1]);
-            song.setHeard3(song.getHeard3() + opinions[2][counter]);
-            song.setLiked3(song.getLiked3() + opinions[2][counter + 1]);
-            song.setHeard4(song.getHeard4() + opinions[3][counter]);
-            song.setLiked4(song.getLiked4() + opinions[3][counter + 1]);
-            counter += 2;
-        }
-        for (Song song : sortedSongs) {
-            song.setHeard1((song.getHeard1() * 10) / sortedSongs.size());
-            song.setLiked1((song.getLiked1() * 10) / sortedSongs.size());
-            song.setHeard2((song.getHeard2() * 10) / sortedSongs.size());
-            song.setLiked2((song.getLiked2() * 10) / sortedSongs.size());
-            song.setHeard3((song.getHeard3() * 10) / sortedSongs.size());
-            song.setLiked3((song.getLiked3() * 10) / sortedSongs.size());
-            song.setHeard4((song.getHeard4() * 10) / sortedSongs.size());
-            song.setLiked4((song.getLiked4() * 10) / sortedSongs.size());
-            counter += 2;
-        }
-        sortedSongs = SongSorter.sortByTitle(sortedSongs);
-        output(sortedSongs);
-        System.out.println();
-        sortedSongs = SongSorter.sortByGenre(sortedSongs);
-        output(sortedSongs);
+        if (args.length == 2) {
+            String surveyLoc = args[0];
+            String songListLoc = args[1];
+            ScanIn foo = new ScanIn(songListLoc, surveyLoc);
+            DemographicsSorter bar = new DemographicsSorter(foo.getStudentList());
 
+        }
+        else {
+            ScanIn foo = new ScanIn("SongList.csv", "MusicSurveyData.csv");
+            DemographicsSorter bar = new DemographicsSorter(foo.getStudentList());
+        }
+        
+        
+        
+        
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
@@ -112,7 +86,7 @@ public class Input extends JFrame {
     /**
      * Create the frame.
      */
-    public Input() {
+    public Inputnew() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 800, 330);
         contentPane = new JPanel();
@@ -243,26 +217,5 @@ public class Input extends JFrame {
         btnQuit = new JButton("Quit");
         btnQuit.setBounds(527, 261, 72, 23);
         contentPane.add(btnQuit);
-    }
-
-    private static void output(LinkedList<Song> songs) {
-        for (Song song : songs) {
-            System.out.println("Song Title: " + song.getTitle());
-            System.out.println("Song Artist: " + song.getArtist());
-            System.out.println("Song Genre: " + song.getGenre());
-            System.out.println("Song Year: " + song.getYear());
-            System.out.println("Heard");
-
-            System.out.println("reading:" + song.getHeard1() + " art:"
-                    + song.getHeard2() + " sports:" + song.getHeard3()
-                    + " music:" + song.getHeard4());
-
-            System.out.println("reading:" + 0 + " art:" + 0 + " sports:" + 50
-                    + " music:" + 0);
-            System.out.println("Likes");
-            System.out.println("reading:" + song.getLiked1() + " art:"
-                    + song.getLiked2() + " sports:" + song.getLiked3()
-                    + " music:" + song.getLiked4());
-        }
     }
 }

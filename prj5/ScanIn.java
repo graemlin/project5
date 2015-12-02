@@ -81,20 +81,30 @@ public class ScanIn {
         LinkedList<Student> studentList = new LinkedList<Student>();
         LinkedList<String> currentOpinions = new LinkedList<String>();
         Student currentStudent;
-
+        //int itt = 1;
         while (file.hasNextLine()) {
-            file.nextLine();
+            
             currentOpinions.clear();
             String[] str = file.nextLine().split(",");
-            if (str[2] != "" && str[3] != "" && str[4] != "") {
 
-                for (int it = 5; it < str.length; it++) {
-                    currentOpinions.add(str[it]);
+            if (str.length > 5) {
+                //makes sure each line has basic student info and opinions
+                if (str[0].matches("\\d+") && str[2] != "" && str[3] != "" && str[4] != "") {
+                    //checks to see if current line has a students info on it
+                    //(a number and three demographics)
+                    
+                    //System.out.println(itt);
+                    //System.out.println(str.length + "");
+
+                    for (int it = 5; it < str.length; it++) {
+                        currentOpinions.add(str[it]);
+                    }
+                    
+                    currentStudent = new Student(str[4], str[2], str[3], currentOpinions);
+                    studentList.add(currentStudent);
                 }
-                currentStudent = new Student(str[4], str[2], str[3],
-                        currentOpinions);
-                studentList.add(currentStudent);
             }
+            //itt++;
         }
         return studentList;
 

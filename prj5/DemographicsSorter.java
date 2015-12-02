@@ -80,7 +80,7 @@ public class DemographicsSorter {
     }
 
     /**
-     * Helper method to sortByHobbie, sortByRedion, sortByMajor opinionsSort
+     * Helper method to sortByHobbie, sortByRegion, sortByMajor opinionsSort
      * updates the integer opinion arrays for each student
      * 
      * @param opinions
@@ -91,20 +91,24 @@ public class DemographicsSorter {
      */
     private int[] opinionsSort(LinkedList<String> opinions, int[] array) {
         int j = 0;
+        //System.out.println(opinions);
         for (int i = 0; i < opinions.size(); i = i + 2) {
-            if (opinions.get(i) == "yes") {
+            if (opinions.get(i).equals("Yes")) {
                 array[j]++; // heard++
                 array[j + 1]++; // valid student++
 
-                if (opinions.get(i + 1) == "yes") {
+                if (opinions.get(i + 1).equals("Yes")) {
                     array[j + 2]++; // liked++
                 }
             }
-            else if (opinions.get(i) == "no") {
+            else if (opinions.get(i).equals("No")) {
                 array[j + 1]++; // valid student++
             }
             j = j + 3;
         }
+        /*for(int i = 0; i < array.length; i++){
+            System.out.println(array[i]);
+        }*/
         return array;
 
     }
