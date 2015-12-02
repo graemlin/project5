@@ -10,28 +10,28 @@ import java.util.LinkedList;
  * @version <20NOV2015>
  *
  */
+
 public class DemographicsSorter {
-    /**
-     * The list of students
-     */
+
     private LinkedList<Student> list;
-    /**
-     * The integer opinion array based on those who like to read
-     */
+
+    // integer opinion arrays
     private int[] readOpinions;
-    /**
-     * The integer opinion array based on those who like sports
-     */
     private int[] sportsOpinions;
-    /**
-     * The integer opinion array based on those who like art
-     */
     private int[] artOpinions;
-    /**
-     * The integer opinion array based on those who like music
-     */
     private int[] musicOpinions;
 
+    private int[] csOpinions;
+    private int[] otherEngOpinions;
+    private int[] mathOpinions;
+    private int[] otherOpinions;
+    
+    private int[] northOpinions;
+    private int[] southOpinions;
+    private int[] restOpinions;
+    private int[] outsideOpinions;
+    
+    
     /**
      * Constructor for the class
      * 
@@ -89,9 +89,108 @@ public class DemographicsSorter {
                 musicOpinions };
         return fullArray;
     }
+    
+    /**
+     * Sorts through each student in LinkedList parameter using an iterator
+     * checks which major the student has and makes updates in the opinion
+     * arrays accordingly using opinionsSorter()
+     * 
+     * @return a matrix that contains 4 integer arrays (csOpinions,
+     *         otherEngOpinions, mathOpinions, otherOpinions)
+     */
+    public int[][] sortByMajor() {
+        Iterator<Student> iter = list.iterator();
+        Student currentStudent = list.getFirst();
+
+        int arraySize = currentStudent.getOpinions().size();
+        csOpinions = new int[arraySize + (arraySize / 2)];
+        otherEngOpinions = new int[arraySize + (arraySize / 2)];
+        mathOpinions = new int[arraySize + (arraySize / 2)];
+        otherOpinions = new int[arraySize + (arraySize / 2)];
+        // has 3 indexes for each song (an int for heard, valid student, and
+        // liked)
+        // from those values the two percentages for each song will be
+        // calculated
+
+        
+        while (iter.hasNext()) {
+            currentStudent = iter.next();
+            if (currentStudent.getMajor() == "Computer Science") {
+                csOpinions = opinionsSort(currentStudent.getOpinions(),
+                        csOpinions);
+            }
+            else if (currentStudent.getMajor() == "Other Engineering") {
+                otherEngOpinions = opinionsSort(currentStudent.getOpinions(),
+                        otherEngOpinions);
+
+            }
+            else if (currentStudent.getMajor() == "Math or CMDA") {
+                mathOpinions = opinionsSort(currentStudent.getOpinions(),
+                        mathOpinions);
+
+            }
+            else { // Other
+                otherOpinions = opinionsSort(currentStudent.getOpinions(),
+                        otherOpinions);
+            }
+        }
+        int[][] fullArray = { csOpinions, otherEngOpinions, mathOpinions,
+                otherOpinions };
+        return fullArray;
+    }
+    
+    
+    /**
+     * Sorts through each student in LinkedList parameter using an iterator
+     * checks which region the student has and makes updates in the opinion
+     * arrays accordingly using opinionsSorter()
+     * 
+     * @return a matrix that contains 4 integer arrays (northOpinions,
+     *         southOpinions, restOpinions, outsideOpinions)
+     */
+    public int[][] sortByRegion() {
+        Iterator<Student> iter = list.iterator();
+        Student currentStudent = list.getFirst();
+
+        int arraySize = currentStudent.getOpinions().size();
+        northOpinions = new int[arraySize + (arraySize / 2)];
+        southOpinions = new int[arraySize + (arraySize / 2)];
+        restOpinions = new int[arraySize + (arraySize / 2)];
+        outsideOpinions = new int[arraySize + (arraySize / 2)];
+        // has 3 indexes for each song (an int for heard, valid student, and
+        // liked)
+        // from those values the two percentages for each song will be
+        // calculated
+
+        
+        while (iter.hasNext()) {
+            currentStudent = iter.next();
+            if (currentStudent.getRegion() == "Northeast US") {
+                northOpinions = opinionsSort(currentStudent.getOpinions(),
+                        northOpinions);
+            }
+            else if (currentStudent.getRegion() == "Southeast US") {
+                southOpinions = opinionsSort(currentStudent.getOpinions(),
+                        southOpinions);
+
+            }
+            else if (currentStudent.getRegion() == "the rest of US") {
+                restOpinions = opinionsSort(currentStudent.getOpinions(),
+                        restOpinions);
+
+            }
+            else { // Other
+                outsideOpinions = opinionsSort(currentStudent.getOpinions(),
+                        outsideOpinions);
+            }
+        }
+        int[][] fullArray = { csOpinions, otherEngOpinions, mathOpinions,
+                otherOpinions };
+        return fullArray;
+    }
 
     /**
-     * Helper method to sortByHobbie, sortByRegion, sortByMajor opinionsSort
+     * Helper method to sortByHobbie, sortByRedion, sortByMajor opinionsSort
      * updates the integer opinion arrays for each student
      * 
      * @param opinions
@@ -102,24 +201,22 @@ public class DemographicsSorter {
      */
     private int[] opinionsSort(LinkedList<String> opinions, int[] array) {
         int j = 0;
-        //System.out.println(opinions);
         for (int i = 0; i < opinions.size(); i = i + 2) {
-            if (opinions.get(i).equals("Yes")) {
+            if (opinions.get(i) == "yes") {
                 array[j]++; // heard++
                 array[j + 1]++; // valid student++
 
-                if (opinions.get(i + 1).equals("Yes")) {
+                if (opinions.get(i + 1) == "yes") {
                     array[j + 2]++; // liked++
                 }
             }
-            else if (opinions.get(i).equals("No")) {
+            else if (opinions.get(i) == "no") {
                 array[j + 1]++; // valid student++
             }
             j = j + 3;
         }
-        /*for(int i = 0; i < array.length; i++){
-            System.out.println(array[i]);
-        }*/
         return array;
+
     }
+
 }
