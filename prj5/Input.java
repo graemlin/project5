@@ -115,8 +115,8 @@ public class Input extends JFrame {
         if(args.length != 2){
             args = new String[]{"SongList.csv" , "MusicSurveyData.csv"};
         }
-        String surveyLoc = args[0];
-        String songListLoc = args[1];
+        String surveyLoc = args[1];
+        String songListLoc = args[0];
         ScanIn foo = new ScanIn(songListLoc, surveyLoc);
         DemographicsSorter bar = new DemographicsSorter(foo.getStudentList());
         int[][] opinions = bar.sortByHobby();

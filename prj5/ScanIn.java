@@ -53,6 +53,7 @@ public class ScanIn {
         while (file.hasNextLine()) {
             file.nextLine();
             String[] str = file.nextLine().split(",");
+            System.out.println(str[4]);
             currentSong = new Song(str[0], str[1], str[3],
                     Integer.parseInt(str[2]));
 
