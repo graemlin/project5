@@ -14,7 +14,9 @@ public class Student {
 	 * The Strings that will hold the hobby, major, and region
 	 * of a specific student
 	 */
-	private String hobby, major, region;
+	private String hobby;
+	private String major;
+	private String region;
 	/**
 	 * A LinkedList that will hold all the opinions a student has
 	 */
