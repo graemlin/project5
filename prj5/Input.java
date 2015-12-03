@@ -63,37 +63,16 @@ public class Input extends JFrame {
         String songListLoc = args[0];
         ScanIn foo = new ScanIn(songListLoc, surveyLoc);
         DemographicsSorter bar = new DemographicsSorter(foo.getStudentList());
+        
+        //Temporary testing code
         int[][] opinions = bar.sortByHobby();
-        LinkedList<Song> sortedSongs = (LinkedList<Song>) foo.getSongList()
-                .clone();
-        int counter = 0;
-        for (Song song : sortedSongs) {
-            song.setHeard1(song.getHeard1() + opinions[0][counter]);
-            song.setLiked1(song.getLiked1() + opinions[0][counter + 1]);
-            song.setHeard2(song.getHeard2() + opinions[1][counter]);
-            song.setLiked2(song.getLiked2() + opinions[1][counter + 1]);
-            song.setHeard3(song.getHeard3() + opinions[2][counter]);
-            song.setLiked3(song.getLiked3() + opinions[2][counter + 1]);
-            song.setHeard4(song.getHeard4() + opinions[3][counter]);
-            song.setLiked4(song.getLiked4() + opinions[3][counter + 1]);
-            counter += 2;
-        }
-        for (Song song : sortedSongs) {
-            song.setHeard1((song.getHeard1() * 10) / sortedSongs.size());
-            song.setLiked1((song.getLiked1() * 10) / sortedSongs.size());
-            song.setHeard2((song.getHeard2() * 10) / sortedSongs.size());
-            song.setLiked2((song.getLiked2() * 10) / sortedSongs.size());
-            song.setHeard3((song.getHeard3() * 10) / sortedSongs.size());
-            song.setLiked3((song.getLiked3() * 10) / sortedSongs.size());
-            song.setHeard4((song.getHeard4() * 10) / sortedSongs.size());
-            song.setLiked4((song.getLiked4() * 10) / sortedSongs.size());
-            counter += 2;
-        }
-        sortedSongs = SongSorter.sortByTitle(sortedSongs);
-        output(sortedSongs);
+        LinkedList<Song> songList = (LinkedList<Song>) foo.getSongList().clone();
+        bar.updateSongList(songList, opinions);
+        songList = SongSorter.sortByTitle(songList);
+        output(songList);
         System.out.println();
-        sortedSongs = SongSorter.sortByGenre(sortedSongs);
-        output(sortedSongs);
+        songList = SongSorter.sortByGenre(songList);
+        output(songList);
 
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -263,5 +242,18 @@ public class Input extends JFrame {
                     + song.getLiked2() + " sports:" + song.getLiked3()
                     + " music:" + song.getLiked4());
         }
+    }
+    
+    private Song[][] glyphArray(LinkedList<Song> songList){
+        Song[][] glyphArr = new Song[songList.size()/6][6];
+        int innerCounter = 0;
+        int outerCounter = 0;
+        for(Song song: songList){
+            glyphArr[outerCounter][innerCounter] = song;
+            outerCounter = outerCounter + innerCounter / 6;
+            innerCounter++;
+            innerCounter%=6;
+        }
+        return glyphArr;
     }
 }

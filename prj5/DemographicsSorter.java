@@ -190,7 +190,7 @@ public class DemographicsSorter {
     }
 
     /**
-     * Helper method to sortByHobbie, sortByRedion, sortByMajor opinionsSort
+     * Helper method to sortByHobby, sortByRegion, sortByMajor opinionsSort
      * updates the integer opinion arrays for each student
      * 
      * @param opinions
@@ -217,6 +217,38 @@ public class DemographicsSorter {
         }
         return array;
 
+    }
+    
+    /**
+     * Updates the data on each song according to the opinion array passed in
+     * @param songList The songList to be updated
+     * @param opinions The opinions to be added in
+     * @pre The songList MUST match the original order of the songs from the files
+     */
+    public void updateSongList(LinkedList<Song> songList, int[][] opinions){
+        int counter = 0;
+        for (Song song : songList) {
+            song.setHeard1(song.getHeard1() + opinions[0][counter]);
+            song.setLiked1(song.getLiked1() + opinions[0][counter + 1]);
+            song.setHeard2(song.getHeard2() + opinions[1][counter]);
+            song.setLiked2(song.getLiked2() + opinions[1][counter + 1]);
+            song.setHeard3(song.getHeard3() + opinions[2][counter]);
+            song.setLiked3(song.getLiked3() + opinions[2][counter + 1]);
+            song.setHeard4(song.getHeard4() + opinions[3][counter]);
+            song.setLiked4(song.getLiked4() + opinions[3][counter + 1]);
+            counter += 2;
+        }
+        for (Song song : songList) {
+            song.setHeard1((song.getHeard1() * 10) / songList.size());
+            song.setLiked1((song.getLiked1() * 10) / songList.size());
+            song.setHeard2((song.getHeard2() * 10) / songList.size());
+            song.setLiked2((song.getLiked2() * 10) / songList.size());
+            song.setHeard3((song.getHeard3() * 10) / songList.size());
+            song.setLiked3((song.getLiked3() * 10) / songList.size());
+            song.setHeard4((song.getHeard4() * 10) / songList.size());
+            song.setLiked4((song.getLiked4() * 10) / songList.size());
+            counter += 2;
+        }
     }
 
 }
