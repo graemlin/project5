@@ -11,6 +11,10 @@ import java.util.LinkedList;
  */
 public class SongSorterTest extends student.TestCase {
     /**
+     * The songSorter
+     */
+    private SongSorter sorter;
+    /**
      * The list of songs
      */
     private LinkedList<Song> songs;
@@ -64,52 +68,54 @@ public class SongSorterTest extends student.TestCase {
         sortedSongs.add(s2);
         sortedSongs.add(s3);
         sortedSongs.add(s4);
+        
+        sorter = new SongSorter(songs);
     }
 
     /**
      * Tests the sortByTitle
      */
     public void testsortByTitle() {
-        assertNull(SongSorter.sortByTitle(empty));
+        assertNull(sorter.sortByTitle(empty));
         empty = new LinkedList<Song>();
-        assertEquals(SongSorter.sortByTitle(empty), new LinkedList<Song>());
+        assertEquals(sorter.sortByTitle(empty), new LinkedList<Song>());
         empty.add(null);
-        assertEquals(SongSorter.sortByTitle(songs), sortedSongs);
+        assertEquals(sorter.sortByTitle(songs), sortedSongs);
     }
 
     /**
      * Tests the sortByArtist
      */
     public void testsortByArtist() {
-        assertNull(SongSorter.sortByTitle(empty));
+        assertNull(sorter.sortByArtist(empty));
         empty = new LinkedList<Song>();
-        assertEquals(SongSorter.sortByTitle(empty), new LinkedList<Song>());
+        assertEquals(sorter.sortByArtist(empty), new LinkedList<Song>());
         empty.add(null);
-        assertEquals(SongSorter.sortByTitle(empty), new LinkedList<Song>());
-        assertEquals(SongSorter.sortByTitle(songs), sortedSongs);
+        assertEquals(sorter.sortByArtist(empty), new LinkedList<Song>());
+        assertEquals(sorter.sortByArtist(songs), sortedSongs);
     }
 
     /**
      * Tests the sortByGenre
      */
     public void testsortByGenre() {
-        assertNull(SongSorter.sortByTitle(empty));
+        assertNull(sorter.sortByGene(empty));
         empty = new LinkedList<Song>();
-        assertEquals(SongSorter.sortByTitle(empty), new LinkedList<Song>());
+        assertEquals(sorter.sortByGenre(empty), new LinkedList<Song>());
         empty.add(null);
-        assertEquals(SongSorter.sortByTitle(empty), new LinkedList<Song>());
-        assertEquals(SongSorter.sortByTitle(songs), sortedSongs);
+        assertEquals(sorter.sortByGenre(empty), new LinkedList<Song>());
+        assertEquals(sorter.sortByGenre(songs), sortedSongs);
     }
 
     /**
      * Tests the sortByYear
      */
     public void testsortByYear() {
-        assertNull(SongSorter.sortByTitle(empty));
+        assertNull(sorter.sortByYear(empty));
         empty = new LinkedList<Song>();
-        assertEquals(SongSorter.sortByTitle(empty), new LinkedList<Song>());
+        assertEquals(sorter.sortByYear(empty), new LinkedList<Song>());
         empty.add(null);
-        assertEquals(SongSorter.sortByTitle(empty), new LinkedList<Song>());
-        assertEquals(SongSorter.sortByTitle(songs), sortedSongs);
+        assertEquals(sorter.sortByYear(empty), new LinkedList<Song>());
+        assertEquals(sorter.sortByYear(songs), sortedSongs);
     }
 }
