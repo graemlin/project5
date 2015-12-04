@@ -3,7 +3,7 @@ package prj5;
 import java.util.LinkedList;
 
 /**
- * Tests the SongSorter
+ * Tests the DemographicSorter
  * 
  * @author Alexander Mundy, Joe Walker, Kalila Simpson <amundy14, jdub36, kiki>
  * @version <20NOV2015>
@@ -14,14 +14,18 @@ public class DemographicSorterTest extends student.TestCase {
      * The DemographicSorter that will be used for testing
      */
 	private DemographicSorter sorter;
-	/**
+    /**
      * A list of Students
      */
     private LinkedList<Student> list;
+        /**
+     * A list of Students
+     */
+    private LinkedList<Student> sortedList;
     /**
      * An empty list
      */
-    private LinkedList<Song> empty;
+    private LinkedList<Student> empty;
     /**
      * The first student used in testing
      */
@@ -39,10 +43,6 @@ public class DemographicSorterTest extends student.TestCase {
      */
     private Student s4;
     /**
-     * The fifth student used in testing
-     */
-    private Student s5;
-    /**
      * The opinions LinkedList
      */
     private LinkedList<String> opins;
@@ -52,6 +52,7 @@ public class DemographicSorterTest extends student.TestCase {
      */
     public void setUp() {
         list = new LinkedList<Student>();
+        sortedList = new LinkedList<Student>();
         empty = null;
         s1 = new Student("reading", "Computer Science", "Northeast US", opins);
         s2 = new Student("sports", "Other Engineering", "Southeast US", opins);
@@ -61,8 +62,12 @@ public class DemographicSorterTest extends student.TestCase {
         list.add(s2);
         list.add(s1);
         list.add(s4);
-        list.add(s5);
         list.add(s3);
+        
+        sortedList.add(s1);
+        sortedList.add(s2);
+        sortedList.add(s3);
+        sortedList.add(s4);
         
         sorter = new DemographicSorter(list);
     }
@@ -70,36 +75,38 @@ public class DemographicSorterTest extends student.TestCase {
     /**
      * Tests the sortByHobby
      */
-    public void testsortByTitle() {
-        assertNull(SongSorter.sortByTitle(empty));
-        empty = new LinkedList<Song>();
-        assertEquals(SongSorter.sortByTitle(empty), new LinkedList<Song>());
+    public void testSortByHobby() {
+        assertNull(sorter.sortByHobby(empty));
+        empty = new LinkedList<Student>();
+        assertEquals(sorter.sortByHobby(empty), new LinkedList<Student>());
         empty.add(null);
-        assertEquals(SongSorter.sortByTitle(songs), sortedSongs);
+        assertEquals(sorter.sortByHobby(list), sortedList);
     }
 
     /**
      * Tests the sortByMajor
      */
-    public void testsortByArtist() {
-        assertNull(SongSorter.sortByTitle(empty));
-        empty = new LinkedList<Song>();
-        assertEquals(SongSorter.sortByTitle(empty), new LinkedList<Song>());
+    public void testSortByMajor() {
+        assertNull(sorter.sortByMajor(empty));
+        empty = new LinkedList<Student>();
+        assertEquals(sorter.sortByMajor(empty), new LinkedList<Student>());
         empty.add(null);
-        assertEquals(SongSorter.sortByTitle(empty), new LinkedList<Song>());
-        assertEquals(SongSorter.sortByTitle(songs), sortedSongs);
+        assertEquals(sorter.sortByMajor(empty), new LinkedList<Student>());
+        sorter.sortByMajor(sortedList);
+        assertEquals(sorter.sortByMajor(list), sortedList);
     }
 
     /**
      * Tests the sortByRegion
      */
-    public void testsortByGenre() {
-        assertNull(SongSorter.sortByTitle(empty));
-        empty = new LinkedList<Song>();
-        assertEquals(SongSorter.sortByTitle(empty), new LinkedList<Song>());
+    public void testsortByRegion() {
+        assertNull(sorter.sortByRegion(empty));
+        empty = new LinkedList<Student>();
+        assertEquals(sorter.sortByRegion(empty), new LinkedList<Student>());
         empty.add(null);
-        assertEquals(SongSorter.sortByTitle(empty), new LinkedList<Song>());
-        assertEquals(SongSorter.sortByTitle(songs), sortedSongs);
+        assertEquals(sorter.sortByRegion(empty), new LinkedList<Student>());
+        sorter.sortByRegion(sortedList);
+        assertEquals(sorter.sortByRegion(list), sortedList);
     }
 
     /**
