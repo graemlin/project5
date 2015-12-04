@@ -23,7 +23,7 @@ import java.awt.Color;
  */
 @SuppressWarnings("serial")
 public class Input extends JFrame {
-    
+
     private JPanel contentPane;
     private Glyph glyph1;
     private Glyph glyph2;
@@ -57,20 +57,21 @@ public class Input extends JFrame {
      */
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
-        if(args.length != 2){
-            args = new String[]{"MusicSurveyData.csv", "SongList.csv"};
+        if (args.length != 2) {
+            args = new String[] { "MusicSurveyData.csv", "SongList.csv" };
         }
         String surveyLoc = args[1];
         String songListLoc = args[0];
         ScanIn foo = new ScanIn(songListLoc, surveyLoc);
         DemographicsSorter bar = new DemographicsSorter(foo.getStudentList());
-        
-        //Temporary testing code
+
+        // Temporary testing code
         ArrayList<ArrayList<Integer>> opinions = bar.sortByHobby();
-        LinkedList<Song> songList = (LinkedList<Song>) foo.getSongList().clone();
+        LinkedList<Song> songList =
+                (LinkedList<Song>) foo.getSongList().clone();
         bar.updateSongList(songList, opinions);
-        //TODO: find a way to run this
-        //updateGlyphs(glyphArray(songList), 0);
+        // TODO: find a way to run this
+        // updateGlyphs(glyphArray(songList), 0);
         songList = SongSorter.sortByTitle(songList);
         output(songList);
         System.out.println();
@@ -232,33 +233,33 @@ public class Input extends JFrame {
             System.out.println("Song Artist: " + song.getArtist());
             System.out.println("Song Genre: " + song.getGenre());
             System.out.println("Song Year: " + song.getYear());
-            
+
             System.out.println("Heard");
             System.out.println("reading:" + song.getHeard1() + " art:"
                     + song.getHeard2() + " sports:" + song.getHeard3()
                     + " music:" + song.getHeard4());
-            
+
             System.out.println("Likes");
             System.out.println("reading:" + song.getLiked1() + " art:"
                     + song.getLiked2() + " sports:" + song.getLiked3()
                     + " music:" + song.getLiked4());
         }
     }
-    
-    private static Song[][] glyphArray(LinkedList<Song> songList){
-        Song[][] glyphArr = new Song[songList.size()/6][6];
+
+    private static Song[][] glyphArray(LinkedList<Song> songList) {
+        Song[][] glyphArr = new Song[songList.size() / 6][6];
         int innerCounter = 0;
         int outerCounter = 0;
-        for(Song song: songList){
+        for (Song song : songList) {
             glyphArr[outerCounter][innerCounter] = song;
             outerCounter = outerCounter + innerCounter / 6;
             innerCounter++;
-            innerCounter%=6;
+            innerCounter %= 6;
         }
         return glyphArr;
     }
-    
-    private void updateGlyphs(Song[][] glyphArray, int desiredSet){
+
+    private void updateGlyphs(Song[][] glyphArray, int desiredSet) {
         glyph1.setTitle(glyphArray[desiredSet][0].getTitle());
         glyph1.setBars(createValuesArray(glyphArray[desiredSet][0]));
         glyph2.setTitle(glyphArray[desiredSet][1].getTitle());
@@ -272,9 +273,9 @@ public class Input extends JFrame {
         glyph6.setTitle(glyphArray[desiredSet][5].getTitle());
         glyph6.setBars(createValuesArray(glyphArray[desiredSet][5]));
     }
-    
-    //TODO: This needs to be rolled into glyphArray or DemographicsSorter
-    private static double[] createValuesArray(Song song){
+
+    // TODO: This needs to be rolled into glyphArray or DemographicsSorter
+    private static double[] createValuesArray(Song song) {
         double[] values = new double[8];
         values[0] = song.getLiked1();
         values[1] = song.getLiked2();

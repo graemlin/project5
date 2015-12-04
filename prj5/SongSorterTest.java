@@ -68,8 +68,8 @@ public class SongSorterTest extends student.TestCase {
         sortedSongs.add(s2);
         sortedSongs.add(s3);
         sortedSongs.add(s4);
-        
-        sorter = new SongSorter(songs);
+
+        sorter = new SongSorter();
     }
 
     /**
@@ -99,7 +99,7 @@ public class SongSorterTest extends student.TestCase {
      * Tests the sortByGenre
      */
     public void testsortByGenre() {
-        assertNull(sorter.sortByGene(empty));
+        assertNull(sorter.sortByGenre(empty));
         empty = new LinkedList<Song>();
         assertEquals(sorter.sortByGenre(empty), new LinkedList<Song>());
         empty.add(null);

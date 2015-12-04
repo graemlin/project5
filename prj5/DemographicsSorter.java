@@ -45,10 +45,10 @@ public class DemographicsSorter {
      *         sportsOpinions, artOpinions, musicOpinions)
      */
     public ArrayList<ArrayList<Integer>> sortByHobby() {
-        if(list == null){
+        if (list == null) {
             return null;
         }
-        if(list.size() == 0){
+        if (list.size() == 0) {
             return new ArrayList<ArrayList<Integer>>();
         }
         Iterator<Student> iter = list.iterator();
@@ -57,7 +57,7 @@ public class DemographicsSorter {
         demographic2.clear();
         demographic3.clear();
         demographic4.clear();
-        int arraySize = list.get(0).getOpinions().size() * 2;
+        int arraySize = list.get(0).getOpinions().size() * 3 / 2;
         for (int i = 0; i < arraySize; i++) {
             demographic1.add(i, 0);
             demographic2.add(i, 0);
@@ -104,10 +104,10 @@ public class DemographicsSorter {
      *         otherEngOpinions, mathOpinions, otherOpinions)
      */
     public ArrayList<ArrayList<Integer>> sortByMajor() {
-        if(list == null){
+        if (list == null) {
             return null;
         }
-        if(list.size() == 0){
+        if (list.size() == 0) {
             return new ArrayList<ArrayList<Integer>>();
         }
         Iterator<Student> iter = list.iterator();
@@ -116,7 +116,7 @@ public class DemographicsSorter {
         demographic2.clear();
         demographic3.clear();
         demographic4.clear();
-        int arraySize = list.get(0).getOpinions().size() * 2;
+        int arraySize = list.get(0).getOpinions().size() * 3 / 2;
         for (int i = 0; i < arraySize; i++) {
             demographic1.add(i, 0);
             demographic2.add(i, 0);
@@ -163,10 +163,10 @@ public class DemographicsSorter {
      *         southOpinions, restOpinions, outsideOpinions)
      */
     public ArrayList<ArrayList<Integer>> sortByRegion() {
-        if(list == null){
+        if (list == null) {
             return null;
         }
-        if(list.size() == 0){
+        if (list.size() == 0) {
             return new ArrayList<ArrayList<Integer>>();
         }
         Iterator<Student> iter = list.iterator();
@@ -175,7 +175,7 @@ public class DemographicsSorter {
         demographic2.clear();
         demographic3.clear();
         demographic4.clear();
-        int arraySize = list.get(0).getOpinions().size() * 2;
+        int arraySize = list.get(0).getOpinions().size() * 3 / 2;
         for (int i = 0; i < arraySize; i++) {
             demographic1.add(i, 0);
             demographic2.add(i, 0);
@@ -260,17 +260,25 @@ public class DemographicsSorter {
 
         for (int it = 0; it < songList.size(); it++) {
             Song foo = songList.get(it);
-            foo.setHeard1((int) (((double) opinions.get(0).get(it * 3))/ ((double) opinions.get(0).get(it * 3 + 1)) * 100));
-            foo.setLiked1((int) (((double) opinions.get(0).get(it * 3 + 3))/ ((double) opinions.get(0).get(it * 3)) * 100));
-            
-            foo.setHeard2((int) (((double) opinions.get(1).get(it * 3))/ ((double) opinions.get(1).get(it * 3 + 1)) * 100));
-            foo.setLiked2((int) (((double) opinions.get(1).get(it * 3 + 3))/ ((double) opinions.get(1).get(it * 3)) * 100));
-            
-            foo.setHeard3((int) (((double) opinions.get(2).get(it * 3))/ ((double) opinions.get(2).get(it * 3 + 1)) * 100));
-            foo.setLiked3((int) (((double) opinions.get(2).get(it * 3 + 3))/ ((double) opinions.get(2).get(it * 3)) * 100));
-            
-            foo.setHeard4((int) (((double) opinions.get(3).get(it * 3))/ ((double) opinions.get(3).get(it * 3 + 1)) * 100));
-            foo.setLiked4((int) (((double) opinions.get(3).get(it * 3 + 3))/ ((double) opinions.get(3).get(it * 3)) * 100));
+            foo.setHeard1((int) (((double) opinions.get(0).get(it * 3))
+                    / ((double) opinions.get(0).get(it * 3 + 1)) * 100));
+            foo.setLiked1((int) (((double) opinions.get(0).get(it * 3 + 3))
+                    / ((double) opinions.get(0).get(it * 3)) * 100));
+
+            foo.setHeard2((int) (((double) opinions.get(1).get(it * 3))
+                    / ((double) opinions.get(1).get(it * 3 + 1)) * 100));
+            foo.setLiked2((int) (((double) opinions.get(1).get(it * 3 + 3))
+                    / ((double) opinions.get(1).get(it * 3)) * 100));
+
+            foo.setHeard3((int) (((double) opinions.get(2).get(it * 3))
+                    / ((double) opinions.get(2).get(it * 3 + 1)) * 100));
+            foo.setLiked3((int) (((double) opinions.get(2).get(it * 3 + 3))
+                    / ((double) opinions.get(2).get(it * 3)) * 100));
+
+            foo.setHeard4((int) (((double) opinions.get(3).get(it * 3))
+                    / ((double) opinions.get(3).get(it * 3 + 1)) * 100));
+            foo.setLiked4((int) (((double) opinions.get(3).get(it * 3 + 3))
+                    / ((double) opinions.get(3).get(it * 3)) * 100));
         }
     }
 

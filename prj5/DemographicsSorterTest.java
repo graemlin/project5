@@ -11,8 +11,8 @@ import java.util.LinkedList;
  *
  */
 public class DemographicsSorterTest extends student.TestCase {
- 
-	private DemographicsSorter sorter;
+
+    private DemographicsSorter sorter;
     private LinkedList<Student> list;
     private LinkedList<Student> otherList;
     private LinkedList<Student> empty;
@@ -30,27 +30,23 @@ public class DemographicsSorterTest extends student.TestCase {
         list = new LinkedList<Student>();
         otherList = new LinkedList<Student>();
         empty = null;
-        
+
         opins = new LinkedList<String>();
         opins.add(0, "Yes");
         opins.add(1, "Yes");
         opins.add(2, "No");
         opins.add(3, "No");
-        opins.add(4, "Yes");
-        opins.add(5, "No");
-        
+
         s1 = new Student("reading", "Computer Science", "Northeast US", opins);
         s2 = new Student("sports", "Other Engineering", "Southeast US", opins);
         s3 = new Student("art", "Math or CMDA", "the rest of US", opins);
         s4 = new Student("music", "Other", "Other", opins);
 
-        
         list.add(s2);
         list.add(s1);
         list.add(s4);
         list.add(s3);
-        
-        
+
         sorter = new DemographicsSorter(list);
     }
 
@@ -59,20 +55,21 @@ public class DemographicsSorterTest extends student.TestCase {
      */
     public void testSortByHobby() {
         assertNull(new DemographicsSorter(empty).sortByHobby());
-        assertEquals(new DemographicsSorter(otherList).sortByHobby(), new ArrayList<ArrayList<Integer>>());
+        assertEquals(new DemographicsSorter(otherList).sortByHobby(),
+                new ArrayList<ArrayList<Integer>>());
         ArrayList<Integer> temp = new ArrayList<Integer>();
-        temp.add(0,  100);
-        temp.add(1, 100);
-        temp.add(2, 0);
+        temp.add(0, 1);
+        temp.add(1, 1);
+        temp.add(2, 1);
         temp.add(3, 0);
-        temp.add(4, 100);
+        temp.add(4, 1);
         temp.add(5, 0);
         opinionPercs = new ArrayList<ArrayList<Integer>>();
         opinionPercs.add(temp);
         opinionPercs.add(temp);
         opinionPercs.add(temp);
         opinionPercs.add(temp);
-        
+
         assertEquals(sorter.sortByHobby(), opinionPercs);
     }
 
@@ -81,20 +78,21 @@ public class DemographicsSorterTest extends student.TestCase {
      */
     public void testSortByMajor() {
         assertNull(new DemographicsSorter(empty).sortByMajor());
-        assertEquals(new DemographicsSorter(otherList).sortByMajor(), new ArrayList<ArrayList<Integer>>());
+        assertEquals(new DemographicsSorter(otherList).sortByMajor(),
+                new ArrayList<ArrayList<Integer>>());
         ArrayList<Integer> temp = new ArrayList<Integer>();
-        temp.add(0,  100);
-        temp.add(1, 100);
-        temp.add(2, 0);
+        temp.add(0, 1);
+        temp.add(1, 1);
+        temp.add(2, 1);
         temp.add(3, 0);
-        temp.add(4, 100);
+        temp.add(4, 1);
         temp.add(5, 0);
         opinionPercs = new ArrayList<ArrayList<Integer>>();
         opinionPercs.add(temp);
         opinionPercs.add(temp);
         opinionPercs.add(temp);
         opinionPercs.add(temp);
-        
+
         assertEquals(sorter.sortByMajor(), opinionPercs);
     }
 
@@ -103,20 +101,21 @@ public class DemographicsSorterTest extends student.TestCase {
      */
     public void testsortByRegion() {
         assertNull(new DemographicsSorter(empty).sortByRegion());
-        assertEquals(new DemographicsSorter(otherList).sortByRegion(), new ArrayList<ArrayList<Integer>>());
+        assertEquals(new DemographicsSorter(otherList).sortByRegion(),
+                new ArrayList<ArrayList<Integer>>());
         ArrayList<Integer> temp = new ArrayList<Integer>();
-        temp.add(0,  100);
-        temp.add(1, 100);
-        temp.add(2, 0);
+        temp.add(0, 1);
+        temp.add(1, 1);
+        temp.add(2, 1);
         temp.add(3, 0);
-        temp.add(4, 100);
+        temp.add(4, 1);
         temp.add(5, 0);
         opinionPercs = new ArrayList<ArrayList<Integer>>();
         opinionPercs.add(temp);
         opinionPercs.add(temp);
         opinionPercs.add(temp);
         opinionPercs.add(temp);
-        
+
         assertEquals(sorter.sortByRegion(), opinionPercs);
     }
 
@@ -124,6 +123,6 @@ public class DemographicsSorterTest extends student.TestCase {
      * Tests the updateSongList
      */
     public void testupdateSongList() {
-        
+
     }
 }
