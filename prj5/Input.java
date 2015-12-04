@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
@@ -65,9 +66,11 @@ public class Input extends JFrame {
         DemographicsSorter bar = new DemographicsSorter(foo.getStudentList());
         
         //Temporary testing code
-        int[][] opinions = bar.sortByHobby();
+        ArrayList<ArrayList<Integer>> opinions = bar.sortByHobby();
         LinkedList<Song> songList = (LinkedList<Song>) foo.getSongList().clone();
         bar.updateSongList(songList, opinions);
+        //TODO: find a way to run this
+        //updateGlyphs(glyphArray(songList), 0);
         songList = SongSorter.sortByTitle(songList);
         output(songList);
         System.out.println();
@@ -244,7 +247,7 @@ public class Input extends JFrame {
         }
     }
     
-    private Song[][] glyphArray(LinkedList<Song> songList){
+    private static Song[][] glyphArray(LinkedList<Song> songList){
         Song[][] glyphArr = new Song[songList.size()/6][6];
         int innerCounter = 0;
         int outerCounter = 0;
@@ -255,5 +258,34 @@ public class Input extends JFrame {
             innerCounter%=6;
         }
         return glyphArr;
+    }
+    
+    private void updateGlyphs(Song[][] glyphArray, int desiredSet){
+        glyph1.setTitle(glyphArray[desiredSet][0].getTitle());
+        glyph1.setBars(createValuesArray(glyphArray[desiredSet][0]));
+        glyph2.setTitle(glyphArray[desiredSet][1].getTitle());
+        glyph2.setBars(createValuesArray(glyphArray[desiredSet][1]));
+        glyph3.setTitle(glyphArray[desiredSet][2].getTitle());
+        glyph3.setBars(createValuesArray(glyphArray[desiredSet][2]));
+        glyph4.setTitle(glyphArray[desiredSet][3].getTitle());
+        glyph4.setBars(createValuesArray(glyphArray[desiredSet][3]));
+        glyph5.setTitle(glyphArray[desiredSet][4].getTitle());
+        glyph5.setBars(createValuesArray(glyphArray[desiredSet][4]));
+        glyph6.setTitle(glyphArray[desiredSet][5].getTitle());
+        glyph6.setBars(createValuesArray(glyphArray[desiredSet][5]));
+    }
+    
+    //TODO: This needs to be rolled into glyphArray or DemographicsSorter
+    private static double[] createValuesArray(Song song){
+        double[] values = new double[8];
+        values[0] = song.getLiked1();
+        values[1] = song.getLiked2();
+        values[2] = song.getLiked3();
+        values[3] = song.getLiked4();
+        values[4] = song.getHeard1();
+        values[5] = song.getHeard2();
+        values[6] = song.getHeard3();
+        values[7] = song.getHeard4();
+        return values;
     }
 }
