@@ -241,15 +241,18 @@ public class DemographicsSorter {
             ArrayList<ArrayList<Integer>> opinions) {
 
         for (int it = 0; it < songList.size(); it++) {
-
-            songList.get(it).setHeard1((int) (((double) opinions.get(0).get(it * 3))/ ((double) opinions.get(0).get(it * 3 + 1))* 100));
-            songList.get(it).setLiked1((int) (((double) opinions.get(0).get(it * 3 + 3))/ ((double) opinions.get(0).get(it * 3)) * 100));
-            songList.get(it / 3).setHeard2((int) (((double) opinions.get(1).get(it))/ ((double) opinions.get(1).get(it + 1)) * 100));
-            songList.get(it / 3).setLiked2((int) (((double) opinions.get(1).get(it + 3))/ ((double) opinions.get(1).get(it)) * 100));
-            songList.get(it / 3).setHeard3((int) (((double) opinions.get(2).get(it))/ ((double) opinions.get(2).get(it + 1)) * 100));
-            songList.get(it / 3).setLiked3((int) (((double) opinions.get(2).get(it + 3))/ ((double) opinions.get(2).get(it)) * 100));
-            songList.get(it / 3).setHeard4((int) (((double) opinions.get(3).get(it))/ ((double) opinions.get(3).get(it + 1)) * 100));
-            songList.get(it / 3).setLiked4((int) (((double) opinions.get(3).get(it + 3))/ ((double) opinions.get(3).get(it)) * 100));
+            Song foo = songList.get(it);
+            foo.setHeard1((int) (((double) opinions.get(0).get(it * 3))/ ((double) opinions.get(0).get(it * 3 + 1)) * 100));
+            foo.setLiked1((int) (((double) opinions.get(0).get(it * 3 + 3))/ ((double) opinions.get(0).get(it * 3)) * 100));
+            
+            foo.setHeard2((int) (((double) opinions.get(1).get(it * 3))/ ((double) opinions.get(1).get(it * 3 + 1)) * 100));
+            foo.setLiked2((int) (((double) opinions.get(1).get(it * 3 + 3))/ ((double) opinions.get(1).get(it * 3)) * 100));
+            
+            foo.setHeard3((int) (((double) opinions.get(2).get(it * 3))/ ((double) opinions.get(2).get(it * 3 + 1)) * 100));
+            foo.setLiked3((int) (((double) opinions.get(2).get(it * 3 + 3))/ ((double) opinions.get(2).get(it * 3)) * 100));
+            
+            foo.setHeard4((int) (((double) opinions.get(3).get(it * 3))/ ((double) opinions.get(3).get(it * 3 + 1)) * 100));
+            foo.setLiked4((int) (((double) opinions.get(3).get(it * 3 + 3))/ ((double) opinions.get(3).get(it * 3)) * 100));
         }
     }
 

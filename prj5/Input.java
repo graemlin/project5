@@ -232,14 +232,12 @@ public class Input extends JFrame {
             System.out.println("Song Artist: " + song.getArtist());
             System.out.println("Song Genre: " + song.getGenre());
             System.out.println("Song Year: " + song.getYear());
+            
             System.out.println("Heard");
-
             System.out.println("reading:" + song.getHeard1() + " art:"
                     + song.getHeard2() + " sports:" + song.getHeard3()
                     + " music:" + song.getHeard4());
-
-            System.out.println("reading:" + 0 + " art:" + 0 + " sports:" + 50
-                    + " music:" + 0);
+            
             System.out.println("Likes");
             System.out.println("reading:" + song.getLiked1() + " art:"
                     + song.getLiked2() + " sports:" + song.getLiked3()
