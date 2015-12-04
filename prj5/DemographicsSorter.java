@@ -45,6 +45,12 @@ public class DemographicsSorter {
      *         sportsOpinions, artOpinions, musicOpinions)
      */
     public ArrayList<ArrayList<Integer>> sortByHobby() {
+        if(list == null){
+            return null;
+        }
+        if(list.size() == 0){
+            return new ArrayList<ArrayList<Integer>>();
+        }
         Iterator<Student> iter = list.iterator();
         Student currentStudent = list.getFirst();
         demographic1.clear();
@@ -98,6 +104,12 @@ public class DemographicsSorter {
      *         otherEngOpinions, mathOpinions, otherOpinions)
      */
     public ArrayList<ArrayList<Integer>> sortByMajor() {
+        if(list == null){
+            return null;
+        }
+        if(list.size() == 0){
+            return new ArrayList<ArrayList<Integer>>();
+        }
         Iterator<Student> iter = list.iterator();
         Student currentStudent = list.getFirst();
         demographic1.clear();
@@ -151,6 +163,12 @@ public class DemographicsSorter {
      *         southOpinions, restOpinions, outsideOpinions)
      */
     public ArrayList<ArrayList<Integer>> sortByRegion() {
+        if(list == null){
+            return null;
+        }
+        if(list.size() == 0){
+            return new ArrayList<ArrayList<Integer>>();
+        }
         Iterator<Student> iter = list.iterator();
         Student currentStudent = list.getFirst();
         demographic1.clear();
