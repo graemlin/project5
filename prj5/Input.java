@@ -58,7 +58,7 @@ public class Input extends JFrame {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         if(args.length != 2){
-            args = new String[]{"SongList.csv" , "MusicSurveyData.csv"};
+            args = new String[]{"MusicSurveyData.csv", "SongList.csv"};
         }
         String surveyLoc = args[1];
         String songListLoc = args[0];

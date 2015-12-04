@@ -23,10 +23,10 @@ public class ScanIn {
      * @param songListLocation The file location of the song list
      * @param studentListLocation The file location of the student list
      */
-    public ScanIn(String songListLocation, String studentListLocation) {
+    public ScanIn(String surveyLocation, String songListLocation) {
 
         this.songList = scanSong(songListLocation);
-        this.studentList = scanStudent(studentListLocation);
+        this.studentList = scanStudent(surveyLocation);
 
     }
 
